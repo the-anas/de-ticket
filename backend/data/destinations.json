@@ -1,0 +1,621 @@
+[
+ {
+  "name": "Heidelberg",
+  "station": "Heidelberg Hauptbahnhof",
+  "station_id": "de-DELFI_de:08221:1160",
+  "lat": 49.40357,
+  "lon": 8.67544,
+  "region": "Baden-Württemberg",
+  "tags": [
+   "old town",
+   "castle"
+  ],
+  "blurb": "Castle ruin above the Neckar, the Philosophenweg and a compact old town."
+ },
+ {
+  "name": "Freiburg im Breisgau",
+  "station": "Freiburg (Breisgau) Hbf",
+  "station_id": "de-DELFI_de:08311:6508:3:1",
+  "lat": 47.99682,
+  "lon": 7.8414,
+  "region": "Baden-Württemberg",
+  "tags": [
+   "old town",
+   "black forest"
+  ],
+  "blurb": "Sunny university city and the usual gateway to the southern Black Forest."
+ },
+ {
+  "name": "Konstanz",
+  "station": "Konstanz",
+  "station_id": "de-DELFI_de:08335:6554",
+  "lat": 47.65874,
+  "lon": 9.17733,
+  "region": "Baden-Württemberg",
+  "tags": [
+   "lake",
+   "old town"
+  ],
+  "blurb": "Lake Constance city on the Swiss border with an intact medieval centre."
+ },
+ {
+  "name": "Tübingen",
+  "station": "Tübingen Hbf",
+  "station_id": "eu-flixbus_dcbb2f42-9603-11e6-9066-549f350fcb0c",
+  "lat": 48.51602,
+  "lon": 9.05422,
+  "region": "Baden-Württemberg",
+  "tags": [
+   "old town",
+   "university"
+  ],
+  "blurb": "Half-timbered riverfront, punting on the Neckar and a hilltop castle."
+ },
+ {
+  "name": "Stuttgart",
+  "station": "Stuttgart Hbf",
+  "station_id": "at-Railway-Current-Reference-Data-2026_de:08111:6115:1:1",
+  "lat": 48.78475,
+  "lon": 9.18322,
+  "region": "Baden-Württemberg",
+  "tags": [
+   "city",
+   "museums"
+  ],
+  "blurb": "Mercedes and Porsche museums, vineyards inside the city limits."
+ },
+ {
+  "name": "Lindau",
+  "station": "Lindau-Insel",
+  "station_id": "at-Railway-Current-Reference-Data-2026_de:09776:1546:1:1",
+  "lat": 47.54539,
+  "lon": 9.68079,
+  "region": "Bavaria",
+  "tags": [
+   "lake",
+   "island"
+  ],
+  "blurb": "Island old town on Lake Constance with a harbour view of the Alps."
+ },
+ {
+  "name": "Füssen",
+  "station": "Füssen",
+  "station_id": "de-amarillo-bw_de:09777:1400",
+  "lat": 47.5705,
+  "lon": 10.69781,
+  "region": "Bavaria",
+  "tags": [
+   "castle",
+   "alps"
+  ],
+  "blurb": "End of the line for Neuschwanstein and Hohenschwangau."
+ },
+ {
+  "name": "Garmisch-Partenkirchen",
+  "station": "Garmisch-Partenkirchen",
+  "station_id": "de-DELFI_de:09180:42837",
+  "lat": 47.49144,
+  "lon": 11.09787,
+  "region": "Bavaria",
+  "tags": [
+   "alps",
+   "hiking"
+  ],
+  "blurb": "Base for the Zugspitze, Partnach gorge and Alpine hiking."
+ },
+ {
+  "name": "Berchtesgaden",
+  "station": "Berchtesgaden Hbf",
+  "station_id": "de-DELFI_de:09172:90194",
+  "lat": 47.62669,
+  "lon": 12.99905,
+  "region": "Bavaria",
+  "tags": [
+   "alps",
+   "lake"
+  ],
+  "blurb": "Königssee and the national park in the far south-east corner."
+ },
+ {
+  "name": "München",
+  "station": "München Hbf",
+  "station_id": "at-Railway-Current-Reference-Data-2026_de:09162:100:11:11",
+  "lat": 48.13988,
+  "lon": 11.55749,
+  "region": "Bavaria",
+  "tags": [
+   "city",
+   "museums"
+  ],
+  "blurb": "Bavarian capital: Englischer Garten, museums and beer halls."
+ },
+ {
+  "name": "Regensburg",
+  "station": "Regensburg Hbf",
+  "station_id": "de-DELFI_de:09362:11090",
+  "lat": 49.01167,
+  "lon": 12.09962,
+  "region": "Bavaria",
+  "tags": [
+   "old town",
+   "unesco"
+  ],
+  "blurb": "Roman and medieval city on the Danube, largely undamaged in the war."
+ },
+ {
+  "name": "Passau",
+  "station": "Passau Hbf",
+  "station_id": "eu-flixbus_dcbc1c77-9603-11e6-9066-549f350fcb0c",
+  "lat": 48.57429,
+  "lon": 13.45037,
+  "region": "Bavaria",
+  "tags": [
+   "old town",
+   "rivers"
+  ],
+  "blurb": "Baroque town where the Danube, Inn and Ilz meet."
+ },
+ {
+  "name": "Nürnberg",
+  "station": "Nürnberg Hbf",
+  "station_id": "at-Railway-Current-Reference-Data-2026_de:09564:510:1:1",
+  "lat": 49.44582,
+  "lon": 11.08207,
+  "region": "Bavaria",
+  "tags": [
+   "city",
+   "history"
+  ],
+  "blurb": "Imperial castle, old town walls and the Nazi party rally grounds documentation centre."
+ },
+ {
+  "name": "Bamberg",
+  "station": "Bamberg",
+  "station_id": "de-DELFI_de:09461:20010",
+  "lat": 49.90076,
+  "lon": 10.89949,
+  "region": "Bavaria",
+  "tags": [
+   "old town",
+   "unesco",
+   "beer"
+  ],
+  "blurb": "UNESCO old town on seven hills, known for smoked beer."
+ },
+ {
+  "name": "Würzburg",
+  "station": "Würzburg Hbf",
+  "station_id": "de-DELFI_de:09663:177",
+  "lat": 49.8018,
+  "lon": 9.93578,
+  "region": "Bavaria",
+  "tags": [
+   "baroque",
+   "wine"
+  ],
+  "blurb": "The Residenz palace and Franconian wine on the Main."
+ },
+ {
+  "name": "Rothenburg ob der Tauber",
+  "station": "Rothenburg ob der Tauber",
+  "station_id": "de-DELFI_de:09571:11600:3:1",
+  "lat": 49.37706,
+  "lon": 10.19084,
+  "region": "Bavaria",
+  "tags": [
+   "old town",
+   "medieval"
+  ],
+  "blurb": "Walled medieval town; reached by a branch line from Steinach."
+ },
+ {
+  "name": "Trier",
+  "station": "Trier Hbf",
+  "station_id": "eu-flixbus_dcbf7bd9-9603-11e6-9066-549f350fcb0c",
+  "lat": 49.75821,
+  "lon": 6.65314,
+  "region": "Rhineland-Palatinate",
+  "tags": [
+   "roman",
+   "unesco"
+  ],
+  "blurb": "Germany's oldest city, with the Porta Nigra and Roman baths."
+ },
+ {
+  "name": "Cochem",
+  "station": "Cochem Bahnhof",
+  "station_id": "de-DELFI_de:07135:070006",
+  "lat": 50.15309,
+  "lon": 7.16674,
+  "region": "Rhineland-Palatinate",
+  "tags": [
+   "river",
+   "castle",
+   "wine"
+  ],
+  "blurb": "Moselle valley town below the Reichsburg castle."
+ },
+ {
+  "name": "Bacharach",
+  "station": "Bacharach, Bahnhof",
+  "station_id": "de-DELFI_de:07339:32623",
+  "lat": 50.0561,
+  "lon": 7.76952,
+  "region": "Rhineland-Palatinate",
+  "tags": [
+   "rhine",
+   "castle",
+   "wine"
+  ],
+  "blurb": "Half-timbered village in the Upper Middle Rhine gorge."
+ },
+ {
+  "name": "Koblenz",
+  "station": "Koblenz Hauptbahnhof",
+  "station_id": "be-sncb_8019023",
+  "lat": 50.35084,
+  "lon": 7.58844,
+  "region": "Rhineland-Palatinate",
+  "tags": [
+   "rhine",
+   "fortress"
+  ],
+  "blurb": "Deutsches Eck, where the Moselle joins the Rhine, and Ehrenbreitstein fortress."
+ },
+ {
+  "name": "Köln",
+  "station": "Köln Hbf",
+  "station_id": "be-sncb_8015458",
+  "lat": 50.94308,
+  "lon": 6.95897,
+  "region": "North Rhine-Westphalia",
+  "tags": [
+   "city",
+   "cathedral"
+  ],
+  "blurb": "The cathedral is next to the station; museums and the Rhine promenade nearby."
+ },
+ {
+  "name": "Aachen",
+  "station": "Aachen, Hbf",
+  "station_id": "be-sncb_8015345",
+  "lat": 50.76776,
+  "lon": 6.09139,
+  "region": "North Rhine-Westphalia",
+  "tags": [
+   "cathedral",
+   "unesco"
+  ],
+  "blurb": "Charlemagne's cathedral and a short hop to the Dutch and Belgian borders."
+ },
+ {
+  "name": "Münster",
+  "station": "Münster (Westf) Hbf",
+  "station_id": "at-Railway-Current-Reference-Data-2026_de:05515:41000:93:12",
+  "lat": 51.95694,
+  "lon": 7.63607,
+  "region": "North Rhine-Westphalia",
+  "tags": [
+   "old town",
+   "cycling"
+  ],
+  "blurb": "Arcaded Prinzipalmarkt and more bicycles than people."
+ },
+ {
+  "name": "Marburg",
+  "station": "Marburg Hauptbahnhof",
+  "station_id": "de-DELFI_de:06534:10011",
+  "lat": 50.81926,
+  "lon": 8.77401,
+  "region": "Hesse",
+  "tags": [
+   "old town",
+   "university"
+  ],
+  "blurb": "Steep half-timbered university town below a landgrave's castle."
+ },
+ {
+  "name": "Bremen",
+  "station": "Bremen Hbf",
+  "station_id": "de-DELFI_de:04011:13927",
+  "lat": 53.08326,
+  "lon": 8.81386,
+  "region": "Bremen",
+  "tags": [
+   "old town",
+   "unesco"
+  ],
+  "blurb": "Town hall and Roland on the market square, the Schnoor quarter."
+ },
+ {
+  "name": "Hamburg",
+  "station": "Hamburg Hbf",
+  "station_id": "at-Railway-Current-Reference-Data-2026_de:02000:10950:11:1",
+  "lat": 53.55248,
+  "lon": 10.00809,
+  "region": "Hamburg",
+  "tags": [
+   "city",
+   "harbour"
+  ],
+  "blurb": "Harbour, Speicherstadt and Elbphilharmonie; HVV ferries are included in the ticket."
+ },
+ {
+  "name": "Lübeck",
+  "station": "Lübeck Hbf",
+  "station_id": "eu-flixbus_dcbbeac7-9603-11e6-9066-549f350fcb0c",
+  "lat": 53.86618,
+  "lon": 10.66918,
+  "region": "Schleswig-Holstein",
+  "tags": [
+   "old town",
+   "unesco"
+  ],
+  "blurb": "Hanseatic brick Gothic old town on an island, known for marzipan."
+ },
+ {
+  "name": "Westerland (Sylt)",
+  "station": "Westerland(Sylt) ZOB/Bahnhof",
+  "station_id": "de-DELFI_de:01054:98523",
+  "lat": 54.90684,
+  "lon": 8.31092,
+  "region": "Schleswig-Holstein",
+  "tags": [
+   "sea",
+   "island"
+  ],
+  "blurb": "North Sea island reached by train over the Hindenburgdamm."
+ },
+ {
+  "name": "Schwerin",
+  "station": "Schwerin Hbf",
+  "station_id": "de-DELFI_de:13004:9005",
+  "lat": 53.6347,
+  "lon": 11.4075,
+  "region": "Mecklenburg-Vorpommern",
+  "tags": [
+   "castle",
+   "lake"
+  ],
+  "blurb": "Fairy-tale palace on an island among seven lakes."
+ },
+ {
+  "name": "Warnemünde",
+  "station": "Warnemünde",
+  "station_id": "de-DELFI_de:13003:1500",
+  "lat": 54.17711,
+  "lon": 12.09084,
+  "region": "Mecklenburg-Vorpommern",
+  "tags": [
+   "sea",
+   "beach"
+  ],
+  "blurb": "Wide Baltic beach and lighthouse, S-Bahn from Rostock."
+ },
+ {
+  "name": "Stralsund",
+  "station": "Stralsund, Hauptbahnhof",
+  "station_id": "de-DELFI_de:13073:10401",
+  "lat": 54.30911,
+  "lon": 13.07777,
+  "region": "Mecklenburg-Vorpommern",
+  "tags": [
+   "old town",
+   "unesco",
+   "sea"
+  ],
+  "blurb": "Hanseatic old town and the gateway to Rügen."
+ },
+ {
+  "name": "Binz (Rügen)",
+  "station": "Ostseebad Binz",
+  "station_id": "de-DELFI_de:13073:11740",
+  "lat": 54.40482,
+  "lon": 13.6005,
+  "region": "Mecklenburg-Vorpommern",
+  "tags": [
+   "sea",
+   "beach",
+   "island"
+  ],
+  "blurb": "Resort architecture and a long beach on Rügen."
+ },
+ {
+  "name": "Berlin",
+  "station": "Berlin Hauptbahnhof",
+  "station_id": "at-Railway-Current-Reference-Data-2026_de:11000:900003200:1:51",
+  "lat": 52.52498,
+  "lon": 13.36911,
+  "region": "Berlin",
+  "tags": [
+   "city",
+   "museums"
+  ],
+  "blurb": "The capital; the whole city network is covered by the ticket."
+ },
+ {
+  "name": "Potsdam",
+  "station": "S Potsdam Hauptbahnhof",
+  "station_id": "de-DELFI_de:12054:900230999",
+  "lat": 52.39144,
+  "lon": 13.06716,
+  "region": "Brandenburg",
+  "tags": [
+   "palace",
+   "unesco"
+  ],
+  "blurb": "Sanssouci and the Prussian palaces and parks."
+ },
+ {
+  "name": "Dresden",
+  "station": "Dresden Hbf",
+  "station_id": "de-DELFI_de:14612:28",
+  "lat": 51.03993,
+  "lon": 13.73293,
+  "region": "Saxony",
+  "tags": [
+   "baroque",
+   "museums"
+  ],
+  "blurb": "Frauenkirche, Zwinger and the Elbe meadows."
+ },
+ {
+  "name": "Bad Schandau",
+  "station": "Bad Schandau",
+  "station_id": "cz-CZPTT_czptt:stop:DE:10533",
+  "lat": 50.91892,
+  "lon": 14.13893,
+  "region": "Saxony",
+  "tags": [
+   "hiking",
+   "national park"
+  ],
+  "blurb": "Base for Saxon Switzerland's sandstone rocks; S-Bahn from Dresden."
+ },
+ {
+  "name": "Görlitz",
+  "station": "Görlitz",
+  "station_id": "de-DELFI_de:14626:8885_G",
+  "lat": 51.14677,
+  "lon": 14.97908,
+  "region": "Saxony",
+  "tags": [
+   "old town",
+   "film"
+  ],
+  "blurb": "Germany's easternmost town, a frequent film set, facing Zgorzelec across the Neisse."
+ },
+ {
+  "name": "Leipzig",
+  "station": "Leipzig Hbf",
+  "station_id": "de-DELFI_de:14713:8010205",
+  "lat": 51.34547,
+  "lon": 12.38206,
+  "region": "Saxony",
+  "tags": [
+   "city",
+   "music"
+  ],
+  "blurb": "Bach, the Peaceful Revolution and a large city-centre station."
+ },
+ {
+  "name": "Weimar",
+  "station": "Weimar",
+  "station_id": "de-DELFI_de:16055:8010366",
+  "lat": 50.99149,
+  "lon": 11.32646,
+  "region": "Thuringia",
+  "tags": [
+   "culture",
+   "unesco"
+  ],
+  "blurb": "Goethe, Schiller and the Bauhaus in one small town."
+ },
+ {
+  "name": "Erfurt",
+  "station": "Erfurt Hbf",
+  "station_id": "at-Railway-Current-Reference-Data-2026_de:16051:8010101::1",
+  "lat": 50.97244,
+  "lon": 11.0375,
+  "region": "Thuringia",
+  "tags": [
+   "old town",
+   "medieval"
+  ],
+  "blurb": "Krämerbrücke, cathedral hill and a well-preserved medieval centre."
+ },
+ {
+  "name": "Eisenach",
+  "station": "Eisenach, ZOB",
+  "station_id": "de-DELFI_de:16056:8010097",
+  "lat": 50.97692,
+  "lon": 10.33199,
+  "region": "Thuringia",
+  "tags": [
+   "castle",
+   "unesco"
+  ],
+  "blurb": "The Wartburg, where Luther translated the New Testament."
+ },
+ {
+  "name": "Quedlinburg",
+  "station": "Quedlinburg",
+  "station_id": "de-DELFI_de:15085:8010290",
+  "lat": 51.78527,
+  "lon": 11.153,
+  "region": "Saxony-Anhalt",
+  "tags": [
+   "old town",
+   "unesco",
+   "harz"
+  ],
+  "blurb": "More than a thousand half-timbered houses at the edge of the Harz."
+ },
+ {
+  "name": "Wernigerode",
+  "station": "Wernigerode Hauptbahnhof",
+  "station_id": "de-DELFI_de:15085:1307:1:31",
+  "lat": 51.83891,
+  "lon": 10.7874,
+  "region": "Saxony-Anhalt",
+  "tags": [
+   "harz",
+   "castle"
+  ],
+  "blurb": "Colourful town hall and castle; the Brocken steam railway from here needs its own ticket."
+ },
+ {
+  "name": "Goslar",
+  "station": "Goslar, Bahnhof",
+  "station_id": "de-DELFI_de:03153:5982",
+  "lat": 51.91174,
+  "lon": 10.42072,
+  "region": "Lower Saxony",
+  "tags": [
+   "old town",
+   "unesco",
+   "harz"
+  ],
+  "blurb": "Imperial palace and the Rammelsberg mine at the Harz edge."
+ },
+ {
+  "name": "Salzburg (AT)",
+  "station": "Salzburg Hbf",
+  "station_id": "at-Railway-Current-Reference-Data-2026_Pat:45:50002",
+  "lat": 47.81306,
+  "lon": 13.04513,
+  "region": "Austria",
+  "tags": [
+   "abroad",
+   "old town"
+  ],
+  "blurb": "Across the border but covered up to Salzburg Hbf via Freilassing."
+ },
+ {
+  "name": "Basel (CH)",
+  "station": "Basel Bad Bf",
+  "station_id": "de-DELFI_ch:23005:6",
+  "lat": 47.56729,
+  "lon": 7.6078,
+  "region": "Switzerland",
+  "tags": [
+   "abroad",
+   "city"
+  ],
+  "blurb": "Covered up to Basel Badischer Bahnhof; trams and buses in Basel are not."
+ },
+ {
+  "name": "Kufstein (AT)",
+  "station": "Kufstein",
+  "station_id": "at-Railway-Current-Reference-Data-2026_Pat:47:2184",
+  "lat": 47.58299,
+  "lon": 12.16596,
+  "region": "Austria",
+  "tags": [
+   "abroad",
+   "alps",
+   "fortress"
+  ],
+  "blurb": "Fortress town in Tyrol, covered via Kiefersfelden."
+ }
+]

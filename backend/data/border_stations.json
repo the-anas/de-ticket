@@ -1,0 +1,35 @@
+{
+  "_about": "Foreign stops where the Deutschlandticket is accepted for travel to/from Germany. Best-effort list compiled 2026-10-11 from the sources below; fare rules change, so verify before travelling.",
+  "_sources": [
+    "https://ticket-rechner.de/ratgeber/deutschlandticket-ausland/ (updated 2026-07-21)",
+    "https://www.bus-und-bahn.de/deutschlandticket/grenzverkehr",
+    "https://de.wikipedia.org/wiki/Deutschlandticket"
+  ],
+  "stations": [
+    {"country": "at", "label": "Salzburg Hbf", "names": ["salzburg hbf", "salzburg hauptbahnhof"], "via": "Freilassing (BRB, DB, ÖBB regional trains)"},
+    {"country": "at", "label": "Kufstein", "names": ["kufstein", "kufstein bahnhof"], "via": "Kiefersfelden (BRB)"},
+    {"country": "ch", "label": "Basel Badischer Bahnhof", "names": ["basel bad bf", "basel badischer bahnhof", "basel bad"], "via": "DB Regio; Basel trams and buses are not covered"},
+    {"country": "ch", "label": "Basel SBB", "names": ["basel sbb"], "via": "Weil am Rhein / Lörrach (DB Regio, SBB Deutschland)"},
+    {"country": "ch", "label": "Schaffhausen", "names": ["schaffhausen"], "via": "Erzingen, Jestetten or Singen side"},
+    {"country": "fr", "label": "Lauterbourg", "names": ["lauterbourg"], "via": "Berg (Pfalz)"},
+    {"country": "fr", "label": "Wissembourg", "names": ["wissembourg"], "via": "Schweighofen"},
+    {"country": "fr", "label": "Sarreguemines (Saargemünd)", "names": ["sarreguemines", "saargemund", "sarreguemines gare"], "prefixes": ["sarreguemines"], "via": "Saarbahn S1"},
+    {"country": "fr", "label": "Creutzwald", "prefixes": ["creutzwald"], "via": "saarVV bus MS2"},
+    {"country": "fr", "label": "Carling", "prefixes": ["carling"], "via": "saarVV bus 184"},
+    {"country": "nl", "label": "Venlo", "names": ["venlo"], "via": "Kaldenkirchen (RE 13)"},
+    {"country": "nl", "label": "Hengelo", "names": ["hengelo"], "via": "Bad Bentheim"},
+    {"country": "nl", "label": "Enschede", "names": ["enschede"], "via": "Gronau (Westf) (RB 51, RB 64)"},
+    {"country": "nl", "label": "Arnhem Centraal", "names": ["arnhem centraal", "arnhem"], "via": "Emmerich (RE 19)"},
+    {"country": "nl", "label": "Vaals", "prefixes": ["vaals"], "via": "AVV buses from Aachen"},
+    {"country": "nl", "label": "Kerkrade", "prefixes": ["kerkrade"], "via": "AVV services from Herzogenrath/Aachen"},
+    {"country": "be", "label": "Kelmis", "prefixes": ["kelmis"], "via": "AVV buses from Aachen only; no trains"},
+    {"country": "dk", "label": "Tønder", "names": ["tonder", "tonder st"], "via": "Niebüll (RB 66); not from Flensburg"},
+    {"country": "pl", "label": "Świnoujście Centrum", "names": ["swinoujscie centrum"], "via": "Ahlbeck Grenze (Usedomer Bäderbahn)"},
+    {"country": "pl", "label": "Zgorzelec", "names": ["zgorzelec"], "via": "Görlitz"},
+    {"country": "pl", "label": "Krzewina Zgorzelecka", "names": ["krzewina zgorzelecka"], "via": "Görlitz–Zittau line"},
+    {"country": "cz", "label": "Hrádek nad Nisou", "names": ["hradek nad nisou"], "via": "Zittau (trilex)"},
+    {"country": "cz", "label": "Varnsdorf", "prefixes": ["varnsdorf"], "via": "Zittau / Seifhennersdorf (trilex)"},
+    {"country": "cz", "label": "Vejprty", "names": ["vejprty"], "via": "Bärenstein"},
+    {"country": "lu", "label": "Luxembourg (rail line from Trier)", "prefixes": ["luxembourg", "wasserbillig", "mertert", "manternach", "wecker", "roodt", "munsbach", "oetrange", "sandweiler", "cents-hamm"], "via": "Trier–Luxembourg regional trains incl. CFL; reported valid until 2026-12-31. Not the Saarbrücken–Luxembourg express bus.", "valid_until": "2026-12-31"}
+  ]
+}
