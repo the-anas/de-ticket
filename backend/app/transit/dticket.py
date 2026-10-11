@@ -95,7 +95,7 @@ def border_station(name: str, on: date | None = None) -> dict | None:
     return None
 
 
-def _check_endpoint(stop: Stop, on: date) -> tuple[str | None, str | None]:
+def check_endpoint(stop: Stop, on: date | None = None) -> tuple[str | None, str | None]:
     """Returns (problem, note) for a boarding or alighting stop."""
     entry = border_station(stop.name, on)
     country = dhid_country(stop.stop_id)
@@ -126,7 +126,7 @@ def check_leg(leg: Leg) -> tuple[list[str], list[str]]:
 
     on = leg.departure.date()
     for stop in (leg.origin, leg.destination):
-        problem, note = _check_endpoint(stop, on)
+        problem, note = check_endpoint(stop, on)
         if problem:
             problems.append(problem)
         if note:

@@ -13,8 +13,12 @@ export const searchStations = (q: string, signal?: AbortSignal) =>
 
 export const fetchDestinations = () => get<Destination[]>('/api/destinations')
 
-export const fetchPopular = (from: Point, signal?: AbortSignal) =>
-  get<PopularRoute[]>(`/api/popular?lat=${from.lat}&lon=${from.lon}`, signal)
+export const fetchPopular = (from: Station, signal?: AbortSignal) => {
+  const params = new URLSearchParams({ lat: String(from.lat), lon: String(from.lon), name: from.name })
+  // only real station ids say anything about the country; map picks have none
+  if (from.id.includes('_')) params.set('station_id', from.id)
+  return get<PopularRoute[]>(`/api/popular?${params}`, signal)
+}
 
 export const fetchJourneys = (from: Point, to: Point, signal?: AbortSignal) =>
   get<Journey[]>(`/api/journeys?from=${from.lat},${from.lon}&to=${to.lat},${to.lon}`, signal)

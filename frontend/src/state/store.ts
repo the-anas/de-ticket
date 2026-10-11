@@ -126,13 +126,9 @@ export const useApp = create<AppState>((set, get) => {
         return
       }
       if (generation !== originGeneration) return
+      // Travel times arrive with the list; the full journey for a destination
+      // is fetched only when it is opened, since those requests are rate-limited.
       set({ popular, popularStatus: 'ready' })
-      // The transit API allows only a slow sustained rate, so journey times
-      // are fetched one after another and appear as they arrive.
-      for (const route of popular) {
-        if (generation !== originGeneration) return
-        await loadRoute(route.destination, generation)
-      }
     },
 
     selectDestination: (dest) => {

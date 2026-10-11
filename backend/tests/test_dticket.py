@@ -127,9 +127,20 @@ def test_parse_recorded_plan():
 
 
 def test_default_departure_avoids_overnight_searches():
-    from app.routes.journeys import default_departure
+    from app.transit.when import default_departure
 
-    midday = datetime(2026, 10, 12, 13, 5, tzinfo=BERLIN)
-    assert default_departure(midday) == midday
+    assert default_departure(datetime(2026, 10, 12, 13, 5, tzinfo=BERLIN)) == datetime(2026, 10, 12, 13, 5, tzinfo=BERLIN)
+    # rounded up to five minutes so nearby requests share a cache entry
+    assert default_departure(datetime(2026, 10, 12, 13, 6, 30, tzinfo=BERLIN)) == datetime(2026, 10, 12, 13, 10, tzinfo=BERLIN)
+    assert default_departure(datetime(2026, 10, 12, 13, 58, tzinfo=BERLIN)) == datetime(2026, 10, 12, 14, 0, tzinfo=BERLIN)
     assert default_departure(datetime(2026, 10, 12, 22, 0, tzinfo=BERLIN)) == datetime(2026, 10, 13, 8, 0, tzinfo=BERLIN)
     assert default_departure(datetime(2026, 10, 12, 3, 0, tzinfo=BERLIN)) == datetime(2026, 10, 12, 8, 0, tzinfo=BERLIN)
+
+
+def test_check_endpoint_for_start_locations():
+    paris = Stop(name="Paris Gare de Lyon", lat=48.8443, lon=2.3743, stop_id="fr-sncf_123")
+    assert dticket.check_endpoint(paris)[0]
+    assert dticket.check_endpoint(SALZBURG) == (None, dticket.check_endpoint(SALZBURG)[1])
+    assert dticket.check_endpoint(SALZBURG)[0] is None
+    # a start picked on the map has no station id, only a name and coordinates
+    assert dticket.check_endpoint(Stop(name="Leipzig Hbf", lat=51.3455, lon=12.3821)) == (None, None)

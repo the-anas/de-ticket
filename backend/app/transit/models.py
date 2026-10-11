@@ -9,6 +9,9 @@ class Station(BaseModel):
     lat: float
     lon: float
     country: str | None = None
+    # federal state (Bundesland) or the equivalent abroad, to tell apart
+    # places that share a name
+    region: str | None = None
 
 
 class Stop(BaseModel):

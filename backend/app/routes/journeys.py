@@ -1,24 +1,14 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from fastapi import APIRouter, HTTPException, Query
 
 from ..deps import get_transit
 from ..transit.models import Journey
-from ..transit.transitous import BERLIN
+from ..transit.when import default_departure
 
 router = APIRouter()
 
 PLACE = r"^-?\d+(\.\d+)?,-?\d+(\.\d+)?$"
-
-
-def default_departure(now: datetime | None = None) -> datetime:
-    """Now during the day, otherwise the next morning, so that browsing in the
-    evening does not show journeys stretched by the overnight timetable gap."""
-    now = now or datetime.now(BERLIN)
-    if 6 <= now.hour < 18:
-        return now
-    day = now if now.hour < 6 else now + timedelta(days=1)
-    return day.replace(hour=8, minute=0, second=0, microsecond=0)
 
 
 @router.get("/api/journeys")

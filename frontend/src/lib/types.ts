@@ -4,6 +4,7 @@ export interface Station {
   lat: number
   lon: number
   country: string | null
+  region?: string | null
 }
 
 export interface Stop {
@@ -51,6 +52,9 @@ export interface Destination {
 export interface PopularRoute {
   destination: Destination
   distance_km: number
+  /** counted from the search time, so it includes the wait for the first train */
+  approx_min: number
+  transfers: number
 }
 
 export interface DocSource {

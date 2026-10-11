@@ -15,6 +15,14 @@ function StartCityBox() {
   const [failed, setFailed] = useState(false)
   const boxRef = useRef<HTMLDivElement>(null)
 
+  // The origin can also be set by clicking a city on the map; mirror it here.
+  const [shownOrigin, setShownOrigin] = useState(origin)
+  if (origin !== shownOrigin) {
+    setShownOrigin(origin)
+    setQuery(origin?.name ?? '')
+    setOpen(false)
+  }
+
   useEffect(() => {
     const q = query.trim()
     if (q.length < 2 || q === origin?.name) return
@@ -37,6 +45,16 @@ function StartCityBox() {
     }
   }, [query, origin])
 
+  // Escape anywhere on the page clears the selected start city.
+  useEffect(() => {
+    if (!origin) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') void setOrigin(null)
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [origin, setOrigin])
+
   useEffect(() => {
     const close = (e: MouseEvent) => {
       if (!boxRef.current?.contains(e.target as Node)) setOpen(false)
@@ -49,8 +67,6 @@ function StartCityBox() {
   const options = query.trim().length >= 2 ? results : []
 
   const choose = (station: Station) => {
-    setQuery(station.name)
-    setOpen(false)
     setResults([])
     void setOrigin(station)
   }
@@ -58,7 +74,7 @@ function StartCityBox() {
   return (
     <div className="start-box" ref={boxRef}>
       <label htmlFor="start-city" className="eyebrow">
-        Start city
+        Pick your starting location
       </label>
       <div className="start-box__field">
         <input
@@ -68,7 +84,11 @@ function StartCityBox() {
           placeholder="Where are you starting from?"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onFocus={() => options.length > 0 && setOpen(true)}
+          onFocus={(e) => {
+            // typing then replaces the current city instead of appending to it
+            e.target.select()
+            if (options.length > 0) setOpen(true)
+          }}
           onKeyDown={(e) => {
             if (e.key === 'ArrowDown') {
               e.preventDefault()
@@ -78,8 +98,11 @@ function StartCityBox() {
               setActive((a) => Math.max(a - 1, 0))
             } else if (e.key === 'Enter' && open && options[active]) {
               choose(options[active])
-            } else if (e.key === 'Escape') {
+            } else if (e.key === 'Escape' && open && options.length > 0) {
+              // first Escape only closes the list; otherwise it falls through
+              // to the page-wide handler that clears the start city
               setOpen(false)
+              e.stopPropagation()
             }
           }}
           role="combobox"
@@ -91,10 +114,7 @@ function StartCityBox() {
             type="button"
             className="icon-button"
             aria-label="Clear start city"
-            onClick={() => {
-              setQuery('')
-              void setOrigin(null)
-            }}
+            onClick={() => void setOrigin(null)}
           >
             ×
           </button>
@@ -116,9 +136,10 @@ function StartCityBox() {
               }}
             >
               {station.name}
-              {station.country && station.country !== 'de' && (
-                <span className="muted"> · {station.country.toUpperCase()}</span>
-              )}
+              <span className="muted">
+                {station.region && ` · ${station.region}`}
+                {station.country && station.country !== 'de' && ` · ${station.country.toUpperCase()}`}
+              </span>
             </li>
           ))}
         </ul>
@@ -139,18 +160,36 @@ function PopularList() {
   if (status === 'error') return <p className="note note--bad pad">Could not load destinations. Is the backend running?</p>
   if (status !== 'ready') return null
 
-  // a destination picked on the map that is not among the nearest ones
-  const extra =
+  // Destinations the ticket cannot reach are left out rather than listed as dead ends.
+  const reachable = popular.filter((p) => routes[p.destination.name]?.status !== 'none')
+  // A city clicked on the map that is not among the suggestions gets its own card on top.
+  const picked =
     selected && !popular.some((p) => p.destination.name === selected)
       ? destinations.find((d) => d.name === selected)
       : undefined
-  const items = [...(extra ? [{ destination: extra, distance_km: null }] : []), ...popular]
+  const pickedUnreachable = picked && routes[picked.name]?.status === 'none'
+  const items = [
+    ...(picked && !pickedUnreachable ? [{ destination: picked, distance_km: null, approx_min: null }] : []),
+    ...reachable,
+  ]
+  if (items.length === 0) {
+    return (
+      <p className="note pad-box">
+        {pickedUnreachable
+          ? `There is no possible route with the Deutschlandticket to ${picked.name}.`
+          : 'There are no possible routes with the Deutschlandticket from here.'}
+      </p>
+    )
+  }
 
   return (
     <div className="popular">
       <div className="eyebrow pad">Popular from here, regional trains only</div>
+      {pickedUnreachable && (
+        <p className="note pad-box">There is no possible route with the Deutschlandticket to {picked.name}.</p>
+      )}
       <ul>
-        {items.map(({ destination, distance_km }) => {
+        {items.map(({ destination, distance_km, approx_min }) => {
           const route = routes[destination.name]
           const isSelected = selected === destination.name
           return (
@@ -165,8 +204,12 @@ function PopularList() {
                   <span className="card__name">{destination.name}</span>
                   <span className="card__time">
                     {route?.status === 'ok' && formatDuration(route.journey.duration_min)}
+                    {!route && approx_min != null && (
+                      <span title="From now, including the wait for the next departure">
+                        ≈ {formatDuration(approx_min)}
+                      </span>
+                    )}
                     {route?.status === 'loading' && <span className="spinner" aria-label="Loading" />}
-                    {route?.status === 'none' && <span className="muted">no route</span>}
                     {route?.status === 'error' && <span className="muted">retry</span>}
                   </span>
                 </div>
@@ -186,9 +229,6 @@ function PopularList() {
                     </>
                   )}
                   {route?.status === 'loading' && <p className="muted">Checking the timetable…</p>}
-                  {route?.status === 'none' && (
-                    <p className="note">No connection covered by the ticket was found for the next departure window.</p>
-                  )}
                   {route?.status === 'error' && <p className="note note--bad">The timetable lookup failed. Select again to retry.</p>}
                 </div>
               )}
@@ -205,20 +245,11 @@ export default function StartPanel() {
   return (
     <aside className="panel start-panel">
       <header className="brand">
-        <span className="brand__mark" aria-hidden="true" />
-        <div>
-          <h1>D-Ticket Trip Planner</h1>
-          <p className="muted">Routes that stay inside the Deutschlandticket</p>
-        </div>
+        <img className="brand__logo" src="/D-Ticket_Logo.svg" alt="" />
+        <h1>D-Ticket Trip Planner</h1>
       </header>
       <StartCityBox />
-      {origin ? (
-        <PopularList />
-      ) : (
-        <p className="muted pad hint">
-          Pick a start city to see where regional trains can take you, or ask the assistant below.
-        </p>
-      )}
+      {origin && <PopularList />}
     </aside>
   )
 }

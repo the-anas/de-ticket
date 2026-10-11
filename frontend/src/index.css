@@ -173,21 +173,10 @@ ul {
   letter-spacing: -0.01em;
 }
 
-.brand p {
-  font-size: 12px;
-}
-
-.brand__mark {
-  width: 34px;
-  height: 34px;
+.brand__logo {
+  width: 36px;
+  height: 36px;
   flex: none;
-  border-radius: 9px;
-  background:
-    radial-gradient(circle at 22% 68%, #fff 0 3px, transparent 3.5px),
-    radial-gradient(circle at 78% 30%, #fff 0 3px, transparent 3.5px),
-    linear-gradient(135deg, transparent 46%, var(--accent) 46% 54%, transparent 54%),
-    #151d30;
-  border: 1px solid var(--line);
 }
 
 .start-box {
@@ -245,8 +234,8 @@ ul {
   background: rgba(242, 184, 75, 0.16);
 }
 
-.hint {
-  font-size: 13px;
+.pad-box {
+  margin: 0 16px;
 }
 
 .popular {
@@ -648,10 +637,6 @@ ul {
     top: 10px;
     width: auto;
     max-height: 46%;
-  }
-
-  .brand p {
-    display: none;
   }
 
   .chat {

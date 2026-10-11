@@ -63,6 +63,7 @@ export default function MapView() {
   const popular = useApp((s) => s.popular)
   const selected = useApp((s) => s.selected)
   const drawn = useApp((s) => s.drawn)
+  const setOrigin = useApp((s) => s.setOrigin)
   const selectDestination = useApp((s) => s.selectDestination)
 
   useEffect(() => {
@@ -230,9 +231,18 @@ export default function MapView() {
               nearby.has(dest.name) ? 'is-nearby' : '',
               selected === dest.name ? 'is-selected' : '',
             ].join(' ')}
-            title={origin ? `${dest.name}: show the route` : `${dest.name}: ${dest.blurb}`}
-            aria-label={dest.name}
-            onClick={() => selectDestination(dest)}
+            title={origin ? `${dest.name}: show the route` : `${dest.name}: start from here`}
+            aria-label={origin ? `Route to ${dest.name}` : `Start from ${dest.name}`}
+            onClick={() => {
+              // The first city picked is the start; after that, clicking a
+              // city routes to it. The start is changed in the box or cleared.
+              if (!origin) {
+                void setOrigin({ id: dest.name, name: dest.station, lat: dest.lat, lon: dest.lon, country: null })
+              } else if (Math.abs(origin.lat - dest.lat) > 0.02 || Math.abs(origin.lon - dest.lon) > 0.02) {
+                // (ignores a click on the start city itself)
+                selectDestination(dest)
+              }
+            }}
           >
             <span className="dest-marker__label">{dest.name}</span>
           </button>
