@@ -1,0 +1,348 @@
+[
+ {
+  "id": "rules-ic",
+  "prompt": "Can I take an IC train with the ticket?",
+  "checks": {
+   "calls": [
+    "search_docs"
+   ],
+   "docs_section": [
+    "Long-distance trains that do accept the ticket",
+    "Which trains are not included"
+   ],
+   "must_contain_any": [
+    "Rostock",
+    "Stralsund",
+    "Emden",
+    "Norddeich",
+    "Gäubahn",
+    "Singen",
+    "Konstanz",
+    "Chemnitz",
+    "Dillenburg",
+    "Gera"
+   ],
+   "language": "en",
+   "max_chars": 1800,
+   "real_queries": true,
+   "cites": [
+    "Long-distance trains that do accept the ticket",
+    "Which trains are not included"
+   ]
+  }
+ },
+ {
+  "id": "rules-price",
+  "prompt": "What does the ticket cost per month?",
+  "checks": {
+   "calls": [
+    "search_docs"
+   ],
+   "docs_section": [
+    "What the ticket is and what it costs"
+   ],
+   "must_contain_any": [
+    "63"
+   ],
+   "must_not_contain": [
+    "49 euro",
+    "49 €",
+    "€49",
+    "58 euro",
+    "58 €",
+    "€58"
+   ],
+   "language": "en",
+   "max_chars": 900,
+   "real_queries": true,
+   "cites": [
+    "What the ticket is and what it costs"
+   ]
+  }
+ },
+ {
+  "id": "border-salzburg-de",
+  "prompt": "Kann ich mit dem Ticket nach Salzburg fahren?",
+  "checks": {
+   "calls": [
+    "search_docs"
+   ],
+   "docs_section": [
+    "Austria: Salzburg and Kufstein"
+   ],
+   "must_contain_any": [
+    "Freilassing"
+   ],
+   "language": "de",
+   "max_chars": 1500,
+   "real_queries": true,
+   "cites": [
+    "Austria: Salzburg and Kufstein"
+   ]
+  }
+ },
+ {
+  "id": "border-innsbruck",
+  "prompt": "I want to go from München to Innsbruck with the ticket. Does that work?",
+  "checks": {
+   "must_contain_any": [
+    "Kufstein"
+   ],
+   "language": "en",
+   "max_chars": 1800
+  }
+ },
+ {
+  "id": "connection-now",
+  "prompt": "When is the next connection to Bonn?",
+  "origin": {
+   "name": "Köln Hbf",
+   "lat": 50.943,
+   "lon": 6.9589
+  },
+  "checks": {
+   "calls": [
+    "find_journeys"
+   ],
+   "quotes_times": true,
+   "grounded_times": true,
+   "grounded_lines": true,
+   "language": "en",
+   "max_chars": 1200
+  }
+ },
+ {
+  "id": "daytrip-saturday",
+  "prompt": "Plan me a day trip for Saturday.",
+  "origin": {
+   "name": "Köln Hbf",
+   "lat": 50.943,
+   "lon": 6.9589
+  },
+  "checks": {
+   "calls": [
+    "suggest_destinations",
+    "find_journeys",
+    "show_on_map"
+   ],
+   "date": "saturday",
+   "quotes_times": true,
+   "grounded_times": true,
+   "grounded_lines": true,
+   "language": "en",
+   "max_chars": 2200,
+   "real_queries": true
+  }
+ },
+ {
+  "id": "daytrip-leipzig-de",
+  "prompt": "Wohin kann ich morgen einen Tagesausflug machen? Bitte mit Abfahrtszeiten.",
+  "origin": {
+   "name": "Leipzig Hbf",
+   "lat": 51.3455,
+   "lon": 12.3821
+  },
+  "checks": {
+   "calls": [
+    "suggest_destinations",
+    "find_journeys",
+    "show_on_map"
+   ],
+   "date": "tomorrow",
+   "quotes_times": true,
+   "grounded_times": true,
+   "grounded_lines": true,
+   "language": "de",
+   "max_chars": 2200,
+   "real_queries": true
+  }
+ },
+ {
+  "id": "explicit-time",
+  "prompt": "I need to be in Dresden by 10:00 on Saturday. Which train do I take from Leipzig?",
+  "checks": {
+   "calls": [
+    "find_journeys"
+   ],
+   "date": "saturday",
+   "arrive_by": true,
+   "quotes_times": true,
+   "grounded_times": true,
+   "grounded_lines": true,
+   "language": "en",
+   "max_chars": 1500
+  }
+ },
+ {
+  "id": "long-haul",
+  "prompt": "How do I get from Hamburg to München with the ticket tomorrow morning?",
+  "checks": {
+   "calls": [
+    "find_journeys"
+   ],
+   "date": "tomorrow",
+   "quotes_times": true,
+   "grounded_times": true,
+   "grounded_lines": true,
+   "must_not_contain": [
+    "ICE "
+   ],
+   "must_contain_any": [
+    "hours",
+    "h ",
+    "Stunden",
+    "all day",
+    "full day",
+    "long"
+   ],
+   "language": "en",
+   "max_chars": 2200
+  }
+ },
+ {
+  "id": "no-origin",
+  "prompt": "Plan a day trip for me this weekend.",
+  "checks": {
+   "must_contain_any": [
+    "where",
+    "Where",
+    "start",
+    "from"
+   ],
+   "must_not_call": [
+    "find_journeys"
+   ],
+   "language": "en",
+   "max_chars": 900
+  }
+ },
+ {
+  "id": "crowding",
+  "prompt": "Is the train to Sylt usually crowded?",
+  "checks": {
+   "calls": [
+    "search_docs"
+   ],
+   "docs_section": [
+    "Crowded trains at weekends and holidays",
+    "North Sea coast and Sylt"
+   ],
+   "language": "en",
+   "max_chars": 1500,
+   "real_queries": true,
+   "cites": [
+    "Crowded trains at weekends and holidays",
+    "North Sea coast and Sylt"
+   ]
+  }
+ },
+ {
+  "id": "within-two-hours",
+  "prompt": "Where can I get to within two hours?",
+  "origin": {
+   "name": "Stuttgart Hbf",
+   "lat": 48.7841,
+   "lon": 9.1829
+  },
+  "checks": {
+   "calls": [
+    "suggest_destinations"
+   ],
+   "must_contain_any": [
+    "Tübingen",
+    "Heidelberg",
+    "Würzburg"
+   ],
+   "must_not_contain": [
+    "Hamburg",
+    "Berlin",
+    "Sylt"
+   ],
+   "language": "en",
+   "max_chars": 2200
+  }
+ },
+ {
+  "id": "off-topic-poem",
+  "prompt": "Write a short poem about the Deutschlandticket.",
+  "checks": {
+   "must_not_call": [
+    "search_stations",
+    "suggest_destinations",
+    "find_journeys",
+    "search_docs",
+    "show_on_map"
+   ],
+   "must_contain_any": [
+    "can only",
+    "only help",
+    "can't",
+    "can’t",
+    "cannot",
+    "not able to",
+    "unable to",
+    "outside"
+   ],
+   "language": "en",
+   "max_chars": 500
+  }
+ },
+ {
+  "id": "off-topic-code",
+  "prompt": "Write a Python function that reverses a string.",
+  "checks": {
+   "must_not_call": [
+    "search_stations",
+    "suggest_destinations",
+    "find_journeys",
+    "search_docs",
+    "show_on_map"
+   ],
+   "must_contain_any": [
+    "can only",
+    "only help",
+    "can't",
+    "can’t",
+    "cannot",
+    "not able to",
+    "unable to",
+    "outside"
+   ],
+   "must_not_contain": [
+    "def ",
+    "```",
+    "[::-1]"
+   ],
+   "language": "en",
+   "max_chars": 500
+  }
+ },
+ {
+  "id": "off-topic-de",
+  "prompt": "Was ist die Hauptstadt von Frankreich?",
+  "checks": {
+   "must_not_call": [
+    "search_stations",
+    "suggest_destinations",
+    "find_journeys",
+    "search_docs",
+    "show_on_map"
+   ],
+   "must_contain_any": [
+    "kann nur",
+    "nur bei",
+    "nur mit",
+    "nur für",
+    "kann ich nicht",
+    "nicht helfen",
+    "nicht beantworten",
+    "leider"
+   ],
+   "must_not_contain": [
+    "Paris"
+   ],
+   "language": "de",
+   "max_chars": 500
+  }
+ }
+]

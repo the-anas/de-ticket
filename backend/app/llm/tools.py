@@ -1,9 +1,11 @@
 """Tools the assistant can call, and their handlers."""
 
+import asyncio
 import json
 from dataclasses import dataclass, field
 from datetime import datetime
 
+from ..destinations import reachable_destinations
 from ..rag.store import get_store
 from ..transit.models import Journey, Station
 from ..transit.transitous import BERLIN, TransitousProvider
@@ -20,6 +22,32 @@ TOOLS = [
             "type": "object",
             "properties": {"query": {"type": "string", "description": "Station or town name, e.g. 'Bamberg'"}},
             "required": ["query"],
+        },
+    ),
+    ToolSpec(
+        name="suggest_destinations",
+        description=(
+            "List places worth visiting that can be reached from a starting point with the Deutschlandticket, "
+            "nearest by travel time first. Use this first for any 'where can I go', day-trip or weekend-trip "
+            "question; it knows which destinations are actually within reach, which the documents do not. "
+            "Each result has the destination, its region, what it is known for, and the approximate travel "
+            "time in minutes counted from the search time (so it includes waiting for the first train). "
+            "Then call find_journeys for the ones you recommend to get exact trains."
+        ),
+        parameters={
+            "type": "object",
+            "properties": {
+                "origin": {"type": "string", "description": "Station or town to start from, e.g. 'Köln Hbf'"},
+                "max_minutes": {
+                    "type": "integer",
+                    "description": "Only places reachable within this many minutes. About 150 suits a day trip.",
+                },
+                "datetime": {
+                    "type": "string",
+                    "description": "Local German departure time, ISO format like 2026-10-17T09:00. Defaults to now.",
+                },
+            },
+            "required": ["origin"],
         },
     ),
     ToolSpec(
@@ -150,16 +178,54 @@ class ToolRunner:
             json.dumps([{"name": s.name, "country": s.country} for s in hits], ensure_ascii=False)
         )
 
+    @staticmethod
+    def _when(args: dict) -> datetime | None:
+        if not args.get("datetime"):
+            return None
+        try:
+            when = datetime.fromisoformat(args["datetime"])
+        except (TypeError, ValueError):
+            raise ValueError("datetime must be ISO format, e.g. 2026-10-17T09:00") from None
+        return when if when.tzinfo else when.replace(tzinfo=BERLIN)
+
+    async def _suggest_destinations(self, args: dict) -> ToolOutcome:
+        _require(args, "origin")
+        limit = args.get("max_minutes")
+        if limit is not None and (not isinstance(limit, int) or isinstance(limit, bool) or limit <= 0):
+            raise ValueError("max_minutes must be a positive whole number")
+        origin = await self._resolve(args["origin"])
+        routes = await reachable_destinations(
+            self._transit, origin.lat, origin.lon, origin.name, origin.id, self._when(args)
+        )
+        within = [r for r in routes if limit is None or r.approx_min <= limit]
+        result: dict = {
+            "origin": origin.name,
+            "destinations": [
+                {
+                    "name": r.destination.name,
+                    "station": r.destination.station,
+                    "region": r.destination.region,
+                    "known_for": r.destination.blurb,
+                    "tags": r.destination.tags,
+                    "approx_minutes": r.approx_min,
+                    "transfers": r.transfers,
+                }
+                for r in within[:12]
+            ],
+        }
+        if not routes:
+            result["note"] = "Nothing on the curated list is reachable with the Deutschlandticket from here."
+        elif not within:
+            nearest = routes[0]
+            result["note"] = (
+                f"Nothing within {limit} minutes. The nearest is {nearest.destination.name} "
+                f"at about {nearest.approx_min} minutes."
+            )
+        return ToolOutcome(json.dumps(result, ensure_ascii=False))
+
     async def _find_journeys(self, args: dict) -> ToolOutcome:
         _require(args, "origin", "destination")
-        when = None
-        if args.get("datetime"):
-            try:
-                when = datetime.fromisoformat(args["datetime"])
-            except (TypeError, ValueError):
-                raise ValueError("datetime must be ISO format, e.g. 2026-10-17T09:00") from None
-            if when.tzinfo is None:
-                when = when.replace(tzinfo=BERLIN)
+        when = self._when(args)
         origin = await self._resolve(args["origin"])
         destination = await self._resolve(args["destination"])
         journeys = await self._transit.plan_journeys(
@@ -179,7 +245,8 @@ class ToolRunner:
 
     async def _search_docs(self, args: dict) -> ToolOutcome:
         _require(args, "query")
-        hits = get_store().search(args["query"], k=5)
+        # off the event loop: the reranker takes long enough to stall other requests
+        hits = await asyncio.to_thread(lambda: get_store().search(args["query"], k=5))
         results = [
             {"source": h.chunk.source, "document": h.chunk.title, "section": h.chunk.section, "text": h.chunk.text}
             for h in hits

@@ -1,0 +1,403 @@
+[
+ {
+  "group": "rules",
+  "query": "Can I take an IC train with the ticket?",
+  "expect": [
+   "Long-distance trains that do accept the ticket",
+   "Which trains are not included"
+  ]
+ },
+ {
+  "group": "rules",
+  "query": "Darf ich mit dem Deutschlandticket ICE fahren?",
+  "expect": [
+   "Which trains are not included",
+   "Long-distance trains that do accept the ticket"
+  ]
+ },
+ {
+  "group": "rules",
+  "query": "How much does the Deutschlandticket cost?",
+  "expect": [
+   "What the ticket is and what it costs"
+  ]
+ },
+ {
+  "group": "rules",
+  "query": "Is the S-Bahn covered by the ticket?",
+  "expect": [
+   "Which transport is included"
+  ]
+ },
+ {
+  "group": "rules",
+  "query": "Kann ich mein Fahrrad mitnehmen?",
+  "expect": [
+   "Bikes, dogs and travelling companions"
+  ]
+ },
+ {
+  "group": "rules",
+  "query": "Can my dog travel with me for free?",
+  "expect": [
+   "Bikes, dogs and travelling companions"
+  ]
+ },
+ {
+  "group": "rules",
+  "query": "Are the ferries in Hamburg included?",
+  "expect": [
+   "Ferries and boats",
+   "Big cities on one ticket"
+  ]
+ },
+ {
+  "group": "rules",
+  "query": "Is FlixTrain included in the ticket?",
+  "expect": [
+   "Which trains are not included"
+  ]
+ },
+ {
+  "group": "rules",
+  "query": "Does the ticket work in first class?",
+  "expect": [
+   "Which trains are not included",
+   "Which transport is included"
+  ]
+ },
+ {
+  "group": "border",
+  "query": "Can I go to Salzburg with the ticket?",
+  "expect": [
+   "Austria: Salzburg and Kufstein"
+  ]
+ },
+ {
+  "group": "border",
+  "query": "Kann ich mit dem Ticket nach Salzburg fahren?",
+  "expect": [
+   "Austria: Salzburg and Kufstein"
+  ]
+ },
+ {
+  "group": "border",
+  "query": "Is Basel covered?",
+  "expect": [
+   "Switzerland: Basel and Schaffhausen"
+  ]
+ },
+ {
+  "group": "border",
+  "query": "Can I use the ticket to get to Strasbourg?",
+  "expect": [
+   "France: Wissembourg, Lauterbourg and Sarreguemines"
+  ]
+ },
+ {
+  "group": "border",
+  "query": "Komme ich mit dem Deutschlandticket in die Niederlande?",
+  "expect": [
+   "Netherlands: Venlo, Arnhem, Enschede and Hengelo"
+  ]
+ },
+ {
+  "group": "border",
+  "query": "Is the ticket valid in Denmark?",
+  "expect": [
+   "Denmark: Tønder"
+  ]
+ },
+ {
+  "group": "border",
+  "query": "Can I travel to Prague with it?",
+  "expect": [
+   "Czech Republic: Hrádek, Varnsdorf and Vejprty",
+   "Border crossings are narrower than they look"
+  ]
+ },
+ {
+  "group": "border",
+  "query": "Is the train to Luxembourg included?",
+  "expect": [
+   "Belgium and Luxembourg"
+  ]
+ },
+ {
+  "group": "border",
+  "query": "München to Innsbruck with the Deutschlandticket",
+  "expect": [
+   "Border crossings are narrower than they look",
+   "Austria: Salzburg and Kufstein"
+  ]
+ },
+ {
+  "group": "destinations",
+  "query": "castles along the Rhine",
+  "expect": [
+   "Rhine and Moselle valleys"
+  ]
+ },
+ {
+  "group": "destinations",
+  "query": "Where can I go hiking near Dresden?",
+  "expect": [
+   "Saxon Switzerland and Dresden"
+  ]
+ },
+ {
+  "group": "destinations",
+  "query": "How do I get to Neuschwanstein?",
+  "expect": [
+   "Bavarian Alps and lakes"
+  ]
+ },
+ {
+  "group": "destinations",
+  "query": "Strandurlaub an der Ostsee",
+  "expect": [
+   "Baltic coast"
+  ]
+ },
+ {
+  "group": "destinations",
+  "query": "half-timbered towns in the Harz",
+  "expect": [
+   "Harz"
+  ]
+ },
+ {
+  "group": "destinations",
+  "query": "trip to Sylt",
+  "expect": [
+   "North Sea coast and Sylt"
+  ]
+ },
+ {
+  "group": "destinations",
+  "query": "Goethe and Bauhaus sights",
+  "expect": [
+   "Thuringia and the classical towns"
+  ]
+ },
+ {
+  "group": "from-a-city",
+  "query": "day trips from Köln",
+  "expect": [
+   "Rhine and Moselle valleys"
+  ]
+ },
+ {
+  "group": "from-a-city",
+  "query": "day trips from Köln Deutschlandticket",
+  "expect": [
+   "Rhine and Moselle valleys"
+  ]
+ },
+ {
+  "group": "from-a-city",
+  "query": "Tagesausflug ab München",
+  "expect": [
+   "Bavarian Alps and lakes"
+  ]
+ },
+ {
+  "group": "from-a-city",
+  "query": "Where should I go for a day from Hamburg?",
+  "expect": [
+   "Baltic coast",
+   "North Sea coast and Sylt"
+  ]
+ },
+ {
+  "group": "from-a-city",
+  "query": "weekend trip from Leipzig",
+  "expect": [
+   "Thuringia and the classical towns",
+   "Saxon Switzerland and Dresden",
+   "Harz"
+  ]
+ },
+ {
+  "group": "from-a-city",
+  "query": "day trip from Stuttgart",
+  "expect": [
+   "Black Forest",
+   "Lake Constance"
+  ]
+ },
+ {
+  "group": "from-a-city",
+  "query": "Ausflug von Berlin ans Meer",
+  "expect": [
+   "Baltic coast"
+  ]
+ },
+ {
+  "group": "problems",
+  "query": "Is the train to Sylt crowded?",
+  "expect": [
+   "Crowded trains at weekends and holidays",
+   "North Sea coast and Sylt"
+  ]
+ },
+ {
+  "group": "problems",
+  "query": "My train was cancelled, what now?",
+  "expect": [
+   "What to do when a train is cancelled"
+  ]
+ },
+ {
+  "group": "problems",
+  "query": "How long does Berlin to München take on regional trains?",
+  "expect": [
+   "Long north–south journeys take a full day"
+  ]
+ },
+ {
+  "group": "problems",
+  "query": "Why is there a bus instead of a train on my route?",
+  "expect": [
+   "Corridor overhauls (Generalsanierung)",
+   "Replacement buses and strike days"
+  ]
+ },
+ {
+  "group": "problems",
+  "query": "Was passiert bei einem Bahnstreik?",
+  "expect": [
+   "Replacement buses and strike days"
+  ]
+ },
+ {
+  "group": "problems",
+  "query": "I only have 5 minutes to change trains, is that enough?",
+  "expect": [
+   "Tight connections and missed transfers"
+  ]
+ },
+ {
+  "group": "model-style",
+  "query": "destinations.md",
+  "expect": [
+   "Rhine and Moselle valleys"
+  ],
+  "note": "A query the model actually sent; no section can be right, kept to show what a bad query costs."
+ },
+ {
+  "group": "model-style",
+  "query": "Köln day trip destinations Rhineland NRW",
+  "expect": [
+   "Rhine and Moselle valleys"
+  ]
+ },
+ {
+  "group": "model-style",
+  "query": "IC Intercity long distance",
+  "expect": [
+   "Long-distance trains that do accept the ticket",
+   "Which trains are not included"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Was kostet das Deutschlandticket im Monat?",
+  "expect": [
+   "What the ticket is and what it costs"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Darf ich meinen Hund mitnehmen?",
+  "expect": [
+   "Bikes, dogs and travelling companions"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Gilt das Ticket auch in der ersten Klasse?",
+  "expect": [
+   "Which trains are not included",
+   "Which transport is included"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Sind Fähren im Ticket enthalten?",
+  "expect": [
+   "Ferries and boats"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Gilt das Deutschlandticket in Österreich?",
+  "expect": [
+   "Austria: Salzburg and Kufstein",
+   "Austria: the Außerfern line through Reutte"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Kann ich mit dem Ticket in die Schweiz fahren?",
+  "expect": [
+   "Switzerland: Basel and Schaffhausen"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Komme ich mit dem Deutschlandticket nach Dänemark?",
+  "expect": [
+   "Denmark: Tønder"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Fahrt nach Polen mit dem Deutschlandticket",
+  "expect": [
+   "Poland: Świnoujście and Zgorzelec"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Wandern in der Sächsischen Schweiz",
+  "expect": [
+   "Saxon Switzerland and Dresden"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Ausflug an die Nordsee",
+  "expect": [
+   "North Sea coast and Sylt"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Urlaub im Schwarzwald",
+  "expect": [
+   "Black Forest"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Sind die Züge am Wochenende überfüllt?",
+  "expect": [
+   "Crowded trains at weekends and holidays"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Mein Zug fällt aus, was kann ich tun?",
+  "expect": [
+   "What to do when a train is cancelled"
+  ]
+ },
+ {
+  "group": "german",
+  "query": "Was mache ich, wenn ich meinen Anschluss verpasse?",
+  "expect": [
+   "Tight connections and missed transfers"
+  ]
+ }
+]

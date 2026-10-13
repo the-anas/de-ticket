@@ -21,6 +21,10 @@ class Settings(BaseSettings):
     transit_user_agent: str = "dticket-planner/0.1"
 
     embedding_model: str = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+    # Cross-encoder that re-orders the best search results; empty turns it off.
+    # Off by default: BAAI/bge-reranker-v2-m3-int8 raises the eval score (right
+    # section first 84% -> 95%) but adds about 1.6 s per search. See CHANGES.txt.
+    reranker_model: str = ""
 
 
 @lru_cache

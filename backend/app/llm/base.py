@@ -43,6 +43,13 @@ class TextDelta:
 
 
 @dataclass
+class Notice:
+    """A short status line for the user, e.g. while waiting out a rate limit."""
+
+    text: str
+
+
+@dataclass
 class TurnEnd:
     text: str
     tool_calls: list[ToolCall] = field(default_factory=list)
@@ -58,7 +65,7 @@ class LLMError(Exception):
 class LLMProvider(Protocol):
     def stream(
         self, system: str, context: str, messages: list[dict], tools: list[ToolSpec]
-    ) -> AsyncIterator[TextDelta | TurnEnd]:
+    ) -> AsyncIterator[TextDelta | Notice | TurnEnd]:
         """Streams one model turn. `system` is stable across requests (and may
         be cached); `context` holds per-request facts such as the current time."""
         ...
